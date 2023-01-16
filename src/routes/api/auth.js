@@ -22,4 +22,6 @@ authRouter.get('/current', authenticate, asyncWrapper(authCtrl.getCurrent));
 
 authRouter.post('/logout', authenticate, asyncWrapper(authCtrl.logout));
 
+authRouter.patch('/', authenticate, asyncWrapper(authCtrl.updateSubscription));
+
 module.exports = authRouter;

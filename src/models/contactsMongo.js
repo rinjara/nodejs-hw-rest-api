@@ -35,6 +35,7 @@ const addContactSchema = Joi.object({
     .required(),
   phone: Joi.string().min(7).required(),
   favorite: Joi.boolean(),
+  owner: Joi.string().required(),
 });
 
 const updateFavoriteSchema = Joi.object({
