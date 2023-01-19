@@ -8,6 +8,8 @@ const contactsRouter = express.Router();
 
 contactsRouter.get('/', authenticate, asyncWrapper(contactsCtrl.getContacts));
 
+contactsRouter.get('/?favorite=true', authenticate, asyncWrapper(contactsCtrl.getFavoriteContacts));
+
 contactsRouter.get('/:contactId', authenticate, asyncWrapper(contactsCtrl.getOneContactById));
 
 contactsRouter.post(
