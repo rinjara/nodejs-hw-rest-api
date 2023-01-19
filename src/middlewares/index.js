@@ -1,3 +1,4 @@
-const { addContactValidation, addFavoriteValidation } = require('./validationMiddleware');
+const { validateBody } = require('./validationMiddleware');
+const { authenticate } = require('./authenticate');
 
-module.exports = { addContactValidation, addFavoriteValidation };
+module.exports = { validateBody, authenticate };

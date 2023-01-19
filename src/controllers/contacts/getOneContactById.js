@@ -1,10 +1,14 @@
+const { HttpError } = require('../../helpers');
 const { Contact } = require('../../models');
 
 const getOneContactById = async (req, res) => {
-  const searchedContact = await Contact.findById(req.params.contactId, '-__v');
+  const searchedContact = await Contact.findById(
+    req.params.contactId,
+    '-__v -createdAt -updatedAt'
+  );
 
   if (!searchedContact) {
-    return res.status(404).json({ message: 'Not found' });
+    throw HttpError(404);
   }
 
   res.json({ searchedContact, status: 200 });
