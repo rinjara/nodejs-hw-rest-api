@@ -12,6 +12,10 @@ authRouter.post(
   asyncWrapper(authCtrl.register)
 );
 
+authRouter.get('/verify/:verificationToken', asyncWrapper(authCtrl.getEmailVerification));
+
+authRouter.post('/verify', asyncWrapper(authCtrl.verifyEmailResend));
+
 authRouter.post(
   '/login',
   validateBody(registrationSchemas.loginSchema),
